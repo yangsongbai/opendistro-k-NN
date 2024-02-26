@@ -124,7 +124,7 @@ public class KNNScoringUtil {
      * calculation of normalization for the query vector.
      * Example:
      *  "script": {
-     *         "source": "cosineSimilarity(params.query_vector, docs[field], 1.0) ",
+     *         "source": "cosSimilarity(params.query_vector, docs[field], 1.0) ",
      *         "params": {
      *           "query_vector": [1, 2, 3.4],
      *           "field": "my_dense_vector"
@@ -171,7 +171,7 @@ public class KNNScoringUtil {
      * document vectors
      * Example:
      *  "script": {
-     *         "source": "cosineSimilarity(params.query_vector, docs[field]) ",
+     *         "source": "cosSimilarity(params.query_vector, docs[field]) ",
      *         "params": {
      *           "query_vector": [1, 2, 3.4],
      *           "field": "my_dense_vector"
