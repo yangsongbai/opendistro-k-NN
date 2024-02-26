@@ -210,7 +210,7 @@ public class KNNScoringUtilTests extends KNNTestCase {
         KNNVectorScriptDocValues scriptDocValues = dataset.getScriptDocValues("test-index-field-name");
         scriptDocValues.setNextDocId(0);
 
-        Float actualScore = KNNScoringUtil.cosineSimilarity(queryVector, scriptDocValues);
+        Float actualScore = KNNScoringUtil.cosSimilarity(queryVector, scriptDocValues);
         assertEquals(1.0f, actualScore, 0.0001);
         dataset.close();
     }
@@ -220,7 +220,7 @@ public class KNNScoringUtilTests extends KNNTestCase {
         TestKNNScriptDocValues dataset = new TestKNNScriptDocValues();
         dataset.createKNNVectorDocument(new float[]{4.0f, 4.0f, 4.0f}, "test-index-field-name");
         KNNVectorScriptDocValues scriptDocValues = dataset.getScriptDocValues("test-index-field-name");
-        expectThrows(IllegalStateException.class, () -> KNNScoringUtil.cosineSimilarity(queryVector, scriptDocValues));
+        expectThrows(IllegalStateException.class, () -> KNNScoringUtil.cosSimilarity(queryVector, scriptDocValues));
         dataset.close();
     }
 
@@ -230,7 +230,7 @@ public class KNNScoringUtilTests extends KNNTestCase {
         dataset.createKNNVectorDocument(new float[]{4.0f, 4.0f, 4.0f}, "test-index-field-name");
         KNNVectorScriptDocValues scriptDocValues = dataset.getScriptDocValues("test-index-field-name");
         scriptDocValues.setNextDocId(0);
-        Float actualScore = KNNScoringUtil.cosineSimilarity(queryVector, scriptDocValues, 3.0f);
+        Float actualScore = KNNScoringUtil.cosSimilarity(queryVector, scriptDocValues, 3.0f);
         assertEquals(1.0f, actualScore, 0.0001);
         dataset.close();
     }
@@ -240,7 +240,7 @@ public class KNNScoringUtilTests extends KNNTestCase {
         TestKNNScriptDocValues dataset = new TestKNNScriptDocValues();
         dataset.createKNNVectorDocument(new float[]{4.0f, 4.0f, 4.0f}, "test-index-field-name");
         KNNVectorScriptDocValues scriptDocValues = dataset.getScriptDocValues("test-index-field-name");
-        expectThrows(IllegalStateException.class, () -> KNNScoringUtil.cosineSimilarity(queryVector, scriptDocValues, 3.0f));
+        expectThrows(IllegalStateException.class, () -> KNNScoringUtil.cosSimilarity(queryVector, scriptDocValues, 3.0f));
         dataset.close();
     }
 

@@ -136,7 +136,7 @@ public class KNNScoringUtil {
      * @param queryVectorMagnitude the magnitude of the query vector.
      * @return cosine score
      */
-    public static float cosineSimilarity(
+    public static float cosSimilarity(
             List<Number> queryVector, KNNVectorScriptDocValues docValues, Number queryVectorMagnitude) {
         return cosinesimilOptimized(toFloat(queryVector), docValues.getValue(), queryVectorMagnitude.floatValue());
     }
@@ -182,7 +182,7 @@ public class KNNScoringUtil {
      * @param docValues   script doc values
      * @return cosine score
      */
-    public static float cosineSimilarity(List<Number> queryVector, KNNVectorScriptDocValues docValues) {
+    public static float cosSimilarity(List<Number> queryVector, KNNVectorScriptDocValues docValues) {
         return cosinesimil(toFloat(queryVector), docValues.getValue());
     }
 
